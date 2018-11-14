@@ -1,27 +1,47 @@
 package sample.list4;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.Label;
+import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextField;
-import android.widget.Pagination;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Controller {
 
-    public Label question;
-    public ListView<Label> sideListView;
-    public TextField bottomTextField;
+    private TextView questionList;
+    private TextView question;
+    private EditText bottomTextField;
+    private Button backButton;
+    private Button nextButton;
+    private Button submitButton;
+    private ListView bottomListView;
+    private ArrayAdapter<String> arrayAdapter;
+
     private Model model;
-    private Pagination page;
-    public Label questionList;
 
     int currentQuestion;
     int totalQuestions;
 
     String[] questions;
 
-    public void initialize() {
+    Controller(TextView t1, TextView t2, EditText e1, Button b1, Button b2, Button b3, ListView lv1) {
+        questionList = t1;
+        question = t2;
+        EditText = e1;
+        Button =  b1;
+
+
+
+        arrayAdapter = (ArrayAdapter<String>)lv1.getAdapter();
+
+
+
         currentQuestion = 0;
         totalQuestions = 5;
         questions = new String[totalQuestions + 1];
@@ -35,14 +55,11 @@ public class Controller {
         question.setText(questions[currentQuestion]);
         questionList.setText("Question " + currentQuestion + " of " + totalQuestions);
 
-        model = new Model();
-        page = new Pagination(6, 0);
-
         // Now that model has been initialized from a file, update View with saved values from Model
         bottomTextField.setText(model.getBottomTextFieldText());
         ArrayList sideListViewTexts = model.getSideListViewTexts();
         for (int i = 0; i < sideListViewTexts.size(); i++) {
-            sideListView.getItems().add(new Label((String)sideListViewTexts.get(i)));
+            sideListView.getItems().add(new TextView((String)sideListViewTexts.get(i)));
             }
         }
 

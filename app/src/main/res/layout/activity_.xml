@@ -11,6 +11,7 @@
         android:id="@+id/question"
         android:layout_width="367dp"
         android:layout_height="49dp"
+        android:layout_marginBottom="8dp"
         android:text="Are you ready for the quiz?"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +98,8 @@
             android:id="@+id/bottomTextField"
             android:layout_width="417dp"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="hint"
+            android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -108,12 +110,11 @@
         tools:layout_editor_absoluteX="13dp"
         tools:layout_editor_absoluteY="176dp" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Responses"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="6dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/responses"
+        android:layout_width="368dp"
+        android:layout_height="267dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="232dp" />
 
 </android.support.constraint.ConstraintLayout>
