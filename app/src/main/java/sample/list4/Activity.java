@@ -15,7 +15,7 @@ public class Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_;
+        setContentView(R.layout.activity_);
 
         TextView questionList = findViewById(R.id.questionList);
         TextView question = findViewById(R.id.question);

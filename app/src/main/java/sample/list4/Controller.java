@@ -22,6 +22,7 @@ public class Controller {
     private Button submitButton;
     private ListView bottomListView;
     private ArrayAdapter<String> arrayAdapter;
+    Context cntxt;
 
     private Model model;
 
@@ -30,11 +31,15 @@ public class Controller {
 
     String[] questions;
 
-    Controller(TextView t1, TextView t2, EditText e1, Button b1, Button b2, Button b3, ListView lv1) {
+    Controller(TextView t1, TextView t2, EditText e1, Button b1, Button b2, Button b3, ListView lv1, Context context) {
         questionList = t1;
         question = t2;
-        EditText = e1;
-        Button =  b1;
+        bottomTextField = e1;
+        backButton = b1;
+        nextButton = b2;
+        submitButton = b3;
+        bottomListView = lv1;
+        cntxt = context;
 
 
 
@@ -94,11 +99,5 @@ public class Controller {
             currentQuestion = currentQuestion + 1;
             question.setText(questions[currentQuestion]);
             questionList.setText("Question " + currentQuestion + " of " + totalQuestions);
-        }
-
-        public void clearButtonReady() {
-            System.out.println("Controller cleared");
-            model.removeAllData(bottomTextField.getText(), sideListView.getItems());
-            model.save();
         }
 }
